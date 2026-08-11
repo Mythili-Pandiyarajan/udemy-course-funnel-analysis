@@ -18,15 +18,15 @@ Which course categories and formats convert best from learner interest to comple
 ### Page 1 — Funnel Overview
 <img width="1207" height="676" alt="Funnel Overview" src="https://github.com/user-attachments/assets/6bab0356-209e-432a-bb03-52ce02d1535c" />
 
-Tracks the full learner journey from visit to completion. Overall conversion from visit to completion sits at **~3.4%**, with the steepest drop-off between **[FILL: e.g. "Total Visits and Total Sign-ups"]**. Paid vs. free courses show different conversion behavior at each funnel stage, and completion rate declines fairly sharply as course rating drops below 4.0.
+Tracks the full learner journey from visit to completion. Overall conversion from visit to completion sits at **~3.4%**. The steepest single drop-off is between **Visits and Sign-ups** — only 16.9% of visitors sign up (an 83% loss), making this the single biggest leak in the funnel. Free courses convert signups into enrollments more effectively than paid courses, and completion rate declines sharply for courses rated under 3.0.
 
 ### Page 2 — Category & Segment Deep-Dive
 <img width="1202" height="675" alt="Category Deep-Dive" src="https://github.com/user-attachments/assets/e17fde01-991d-4b77-92ba-e27191452834" />
 
 Compares categories on both enrollment volume and completion quality. Key findings:
-- **Best performing:** [FILL: category/categories with high enrollment AND high completion]
-- **Opportunity zone:** [FILL: category/categories with high enrollment but low completion — most learner drop-off relative to interest]
-- **Niche/underexplored:** [FILL: category with low enrollment but high completion]
+- **Best performing:** IT & Software and Business — high enrollment paired with high completion (~0.33–0.34)
+- **Opportunity zone:** Development — by far the highest-enrollment category, but its completion rate (~0.32) trails smaller categories, representing the largest absolute number of learners lost
+- **Niche/underexplored:** Office Productivity, Personal Development, and Teaching & Academics — lower enrollment, but the highest completion rates (~0.34) in the dataset
 
 ### Page 3 — Course Explorer
 <img width="1200" height="677" alt="Course Explorer" src="https://github.com/user-attachments/assets/2078f126-ff23-4209-844d-606951d7bfcc" />
@@ -34,16 +34,18 @@ Compares categories on both enrollment volume and completion quality. Key findin
 Searchable, sortable table of all 98K courses (title, category, level, pricing, rating, reviews, subscribers, completion rate) for drilling into individual courses.
 
 ## Key Findings
-1. [FILL: overall funnel conversion rate and where the biggest drop-off is]
-2. [FILL: category that's high-demand but underperforming on completion]
-3. [FILL: paid vs free courses conversion difference]
+1. The funnel's biggest leak is at the very top — 83% of visitors never sign up, far outweighing drop-off at any later stage (signup→enrollment loses 37%, enrollment→completion loses 68%, but starts from a much smaller base).
+2. Development is Udemy's highest-volume category by a wide margin, but its completion rate is below smaller, more focused categories like Office Productivity and Personal Development — suggesting quality/engagement issues at scale rather than a demand problem.
+3. Free courses convert signups to enrollments better than paid courses, suggesting price may be a friction point between initial interest and committing to a course.
 
 ## Recommendations
-1. [FILL: recommendation tied to finding 1]
-2. [FILL: recommendation tied to finding 2]
+1. Prioritize visit-to-signup conversion (e.g. clearer value proposition on course landing pages, lower-friction signup flow) since this is where the largest share of learners is lost — improvements here would have outsized impact versus optimizing later funnel stages.
+2. Investigate what high-completion niche categories (Office Productivity, Personal Development, Teaching & Academics) do differently in course structure or pacing, and test applying similar patterns to Development courses, where completion lags despite the highest enrollment.
 
 ## Data Validation Notes
-While building this project, a bug was found and fixed in the initial MySQL load: empty rate values were loading as `0` instead of `NULL`, which was skewing category-level averages. Fixed via a targeted `UPDATE` to null out invalid rows before analysis. A separate issue was also caught and fixed in the Power BI layer: funnel conversion rates had originally been summed rather than averaged across courses, which produced misleading totals — this was corrected using weighted-average DAX measures (`DIVIDE(SUM(...), SUM(...))`).
+Two data-quality issues were caught and fixed during this project:
+- **NULL-handling bug in the MySQL load:** empty rate values were loading as `0` instead of `NULL`, skewing category-level averages. Fixed via a targeted `UPDATE` to null out invalid rows before analysis.
+- **Rate aggregation bug in Power BI:** funnel conversion rates and course ratings had initially been summed rather than averaged across rows, producing misleading totals (e.g. one course rating appearing as 9.03). Root cause: some course titles are shared by multiple distinct listings (different instructors publishing under the same or similar course name), so any visual grouping by title alone silently summed their values together. Fixed by using dedicated `AVERAGE`/`DIVIDE`-based DAX measures instead of raw summed columns, and including course `id` in the Course Explorer table so title collisions display as separate rows rather than merging.
 
 ## Repository Structure
 - `udemy_courses_analysis_1.ipynb` — Data cleaning & funnel simulation (Python/Colab)
