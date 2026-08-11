@@ -21,7 +21,8 @@ Which course categories and formats convert best from learner interest to comple
 Tracks the full learner journey from visit to completion. Overall conversion from visit to completion sits at **~3.4%**, with the steepest drop-off between [Total Visits → Total Sign-ups / whichever stage had the biggest fall]. Paid vs. free courses show different conversion behavior at each funnel stage, and completion rate declines fairly sharply as course rating drops below 4.0.
 
 ### Page 2 — Category & Segment Deep-Dive
-![Category Deep-Dive](screenshots_page2_category_deepdive.png)
+![Category Deep-Dive]<img width="1207" height="676" alt="screenshots_page1_funnel_overview" src="https://github.com/user-attachments/assets/6bab0356-209e-432a-bb03-52ce02d1535c" />
+
 
 Compares categories on both enrollment volume and completion quality. Key findings:
 - **Best performing:** [category/categories with high enrollment AND high completion]
