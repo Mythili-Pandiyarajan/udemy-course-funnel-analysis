@@ -16,12 +16,13 @@ Which course categories and formats convert best from learner interest to comple
 ## Dashboard
 
 ### Page 1 — Funnel Overview
-![Funnel Overview](screenshots_page1_funnel_overview.png)
+Funnel Overview <img width="1207" height="676" alt="screenshots_page1_funnel_overview" src="https://github.com/user-attachments/assets/6bab0356-209e-432a-bb03-52ce02d1535c" />
 
 Tracks the full learner journey from visit to completion. Overall conversion from visit to completion sits at **~3.4%**, with the steepest drop-off between [Total Visits → Total Sign-ups / whichever stage had the biggest fall]. Paid vs. free courses show different conversion behavior at each funnel stage, and completion rate declines fairly sharply as course rating drops below 4.0.
 
 ### Page 2 — Category & Segment Deep-Dive
-![Category Deep-Dive]<img width="1207" height="676" alt="screenshots_page1_funnel_overview" src="https://github.com/user-attachments/assets/6bab0356-209e-432a-bb03-52ce02d1535c" />
+Category Deep-Dive <img width="1202" height="675" alt="screenshots_page2_category_deepdive" src="https://github.com/user-attachments/assets/e17fde01-991d-4b77-92ba-e27191452834" />
+
 
 
 Compares categories on both enrollment volume and completion quality. Key findings:
@@ -30,7 +31,8 @@ Compares categories on both enrollment volume and completion quality. Key findin
 - **Niche/underexplored:** [category with low enrollment but high completion]
 
 ### Page 3 — Course Explorer
-![Course Explorer](screenshots_page3_course_explorer.png)
+Course Explorer <img width="1200" height="677" alt="screenshots_page3_course_explorer" src="https://github.com/user-attachments/assets/2078f126-ff23-4209-844d-606951d7bfcc" />
+
 
 Searchable, sortable table of all 98K courses (title, category, level, pricing, rating, reviews, subscribers, completion rate) for drilling into individual courses.
 
